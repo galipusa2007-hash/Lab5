@@ -18,7 +18,7 @@ public class QCPlanValidation {
         validateFrequency(plan.getFrequency());
         validateOwnerUsername(plan.getOwnerUsername());
         validateCreatedAt(plan.getCreatedAt());
-        }
+    }
 
     private void validateId(long id) {
         if (id <= 0) {
@@ -47,7 +47,7 @@ public class QCPlanValidation {
         }
     }
 
-    private void validateOwnerUsername(String ownerUsername)  {
+    private void validateOwnerUsername(String ownerUsername) {
         if (ownerUsername == null || ownerUsername.isEmpty()) {
             throw new ValidationException("Ошибка: имя владельца не может быть пустым");
         }

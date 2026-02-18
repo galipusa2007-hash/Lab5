@@ -20,6 +20,7 @@ public class QCCheckManager {
 
     private final SampleManager sampleManager;
     private final QCPlanManager planManager;
+
     public QCCheckManager(SampleManager sampleManager, QCPlanManager planManager) {
         this.sampleManager = sampleManager;
         this.planManager = planManager;
@@ -30,12 +31,6 @@ public class QCCheckManager {
     }
 
     public QCCheck add(long sampleId, long planId, double value, String unit, QCStatus status, String ownerUsername, Instant createdAt, Instant checkedAtOrNull) {
-        if (!sampleManager.exists(sampleId)) {
-            throw new ValidationException("Ошибка: sampleId не существует");
-        }
-        if (!planManager.exists(planId)) {
-        throw new ValidationException("Ошибка: planId не существует");
-        }
 
         long id = generateId();
         Instant now = Instant.now();
@@ -43,12 +38,12 @@ public class QCCheckManager {
         Instant checkedAt;
         if (checkedAtOrNull != null) {
             checkedAt = checkedAtOrNull;
-        } else  {
+        } else {
             checkedAt = now;
         }
 
         QCCheck check = new QCCheck(id, sampleId, planId, value, unit, status, ownerUsername, checkedAt, createdAt, now);
-        validation.validate(check);
+        validation.validate(check, planManager, sampleManager);
         map.put(id, check);
         return check;
     }

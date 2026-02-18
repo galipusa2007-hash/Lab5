@@ -1,6 +1,7 @@
 package ru.itmo.galiya.base;
 
 import ru.itmo.galiya.QCStatus;
+
 import java.time.Instant;
 
 public final class QCCheck {

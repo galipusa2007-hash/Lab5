@@ -9,6 +9,7 @@ public final class Sample {
     public Sample(long id) {
         this.id = id;
     }
+
     public long getId() {
         return id;
     }

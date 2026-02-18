@@ -1,5 +1,7 @@
 package ru.itmo.galiya.base;
 
+import ru.itmo.galiya.manager.QCPlanManager;
+
 import java.time.Instant;
 
 public final class QCLimit {
@@ -19,6 +21,9 @@ public final class QCLimit {
 
     // Когда установили/обновили пределы. Программа ставит автоматически.
     private Instant updatedAt;
+
+    public QCLimit(long id, QCPlanManager planId, double minValue, double maxValue, Instant updatedAt) {
+    }
 
     public long getId() {
         return id;

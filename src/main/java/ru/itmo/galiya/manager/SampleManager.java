@@ -9,33 +9,34 @@ import java.util.Map;
 
 public class SampleManager {
 
-    private  final Map<Long, Sample> map = new HashMap<>();
-        private long id = 1;
-        private long generateId() {
-            return id++;
-        }
+    private final Map<Long, Sample> map = new HashMap<>();
+    private long id = 1;
+
+    private long generateId() {
+        return id++;
+    }
 
     public Sample add() {
-            long sampleId = generateId();
-            Sample sample = new Sample(sampleId);
-            map.put(sampleId, sample);
-            return sample;
+        long sampleId = generateId();
+        Sample sample = new Sample(sampleId);
+        map.put(sampleId, sample);
+        return sample;
     }
 
     public Sample get(long id) {
-            return map.get(id);
+        return map.get(id);
     }
 
     public Collection<Sample> getAll() {
-            return Collections.unmodifiableCollection(map.values());
+        return Collections.unmodifiableCollection(map.values());
     }
 
     public boolean exists(long id) {
-            return map.containsKey(id);
+        return map.containsKey(id);
     }
 
     public void remove(long id) {
-            map.remove(id);
+        map.remove(id);
     }
 
 }
