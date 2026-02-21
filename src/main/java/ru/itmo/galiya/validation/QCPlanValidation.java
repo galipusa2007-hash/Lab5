@@ -18,6 +18,8 @@ public class QCPlanValidation {
         validateFrequency(plan.getFrequency());
         validateOwnerUsername(plan.getOwnerUsername());
         validateCreatedAt(plan.getCreatedAt());
+        validateUpdatedAt(plan.getUpdatedAt());
+        validateTimeOrder(plan.getCreatedAt(), plan.getUpdatedAt() );
     }
 
     private void validateId(long id) {
@@ -59,6 +61,17 @@ public class QCPlanValidation {
     private void validateCreatedAt(Instant createdAt) {
         if (createdAt == null) {
             throw new ValidationException("Ошибка: время установления не может быть пустым");
+        }
+    }
+
+    private void validateUpdatedAt(Instant updatedAt) {
+        if (updatedAt == null) {
+            throw new ValidationException("Ошибка: время установления не может быть пустым");
+        }
+    }
+    private void validateTimeOrder(Instant createdAt, Instant updatedAt) {
+        if (updatedAt.isBefore(createdAt)) {
+            throw new ValidationException("Ошибка: время обновления не может быть раньше времени создания");
         }
     }
 }

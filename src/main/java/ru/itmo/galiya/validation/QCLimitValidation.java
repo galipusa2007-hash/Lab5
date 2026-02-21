@@ -6,8 +6,18 @@ import ru.itmo.galiya.manager.QCPlanManager;
 import java.time.Instant;
 
 public class QCLimitValidation {
+    public void validate(QCLimit limit, QCPlanManager planManager) {
+        validateQCLimit(limit);
+        if (planManager == null) {
+            throw new ValidationException("Ошибка: объект не может быть пустым");
+        }
+        if (!planManager.exists(limit.getPlanId())) {
+            throw new ValidationException("Ошибка: объект c таким id не существует");
+        }
+    }
 
-    public void validateQCLimit(QCLimit limit, QCPlanManager planManager) {
+
+    private void validateQCLimit(QCLimit limit) {
         if (limit == null) {
             throw new ValidationException("Ошибка: объект не может быть пустым");
 
@@ -28,7 +38,7 @@ public class QCLimitValidation {
 
     private void validatePlanId(long planId) {
         if (planId <= 0) {
-            throw new ValidationException("Ошибка: план предела не может быть пустым");
+            throw new ValidationException("Ошибка: план проверки не может быть пустым");
         }
     }
 
@@ -61,16 +71,6 @@ public class QCLimitValidation {
             throw new ValidationException("Ошибка: время установки/обновления не может быть пустым");
         }
     }
-    private void validate(QCLimit limit) {
-    }
-    public void validate(QCLimit limit, QCPlanManager planManager) {
-        validate(limit);
-        if (!planManager.exists(limit.getPlanId())) {
-            throw new ValidationException("Ошибка: planId не существует");
-        }
-    }
-
-
 }
 
 

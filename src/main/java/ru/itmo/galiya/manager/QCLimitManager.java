@@ -4,25 +4,31 @@ import ru.itmo.galiya.base.QCLimit;
 import ru.itmo.galiya.validation.QCLimitValidation;
 
 import java.time.Instant;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
 public class QCLimitManager {
     private final Map<Long, QCLimit> map = new HashMap<>();
     private long id = 1;
-    Instant now = Instant.now();
 
     private final QCLimitValidation validation = new QCLimitValidation();
+    private final QCPlanManager planManager;
+    public QCLimitManager(QCPlanManager planManager) {
+        this.planManager = planManager;
+    }
 
     private long generationId() {
         return id++;
     }
 
-    public QCLimit add(QCPlanManager planId, double minValue, double maxValue, Instant updatedAt) {
+    public QCLimit add(long planId, double minValue, double maxValue) {
         long id = generationId();
+        Instant now = Instant.now();
 
-        QCLimit limit = new QCLimit(id, planId, minValue, maxValue, updatedAt);
-        validation.validateQCLimit(limit, planId);
+        QCLimit limit = new QCLimit(id, planId, minValue, maxValue, now);
+        validation.validate(limit, planManager);
 
         map.put(id, limit);
         return limit;
@@ -31,8 +37,12 @@ public class QCLimitManager {
     public QCLimit get(long id) {
         return map.get(id);
     }
-
-
+    public Collection<QCLimit> getAll() {
+        return Collections.unmodifiableCollection(map.values());
+    }
+    public boolean exists(long id) {
+        return map.containsKey(id);
+    }
     public QCLimit remove(long id) {
         return map.remove(id);
     }

@@ -8,11 +8,24 @@ import ru.itmo.galiya.manager.SampleManager;
 import java.time.Instant;
 
 public class QCCheckValidation {
+    public void validate(QCCheck check, QCPlanManager planManager, SampleManager sampleManager) {
+        validate(check);
+            if (planManager == null) {
+                throw new ValidationException("Ошибка: объект не может быть пустым");
+            }
+            if (sampleManager == null) {
+                throw new ValidationException("Ошибка: объект не может быть пустым");
+            }
+            if (!sampleManager.exists(check.getSampleId())) {
+                throw new ValidationException("Ошибка: объект c таким id не существует");
+            }
+            if (!planManager.exists(check.getPlanId())) {
+                throw new ValidationException("Ошибка: объект c таким id не существует");
+            }
+    }
 
-    private long sampleId;
-    private long planId;
 
-    public void validate(QCCheck check) {
+    private void validate(QCCheck check) {
         if (check == null) {
             throw new ValidationException("Ошибка: объект не может быть пустым");
         }
@@ -85,15 +98,6 @@ public class QCCheckValidation {
     private void validateCreatedAt(Instant createdAt) {
         if (createdAt == null) {
             throw new ValidationException("Ошибка: время установления не может быть пустым");
-        }
-    }
-    public void validate(QCCheck check, QCPlanManager planManager, SampleManager sampleManager) {
-        validateId(check.getId());
-        if (!sampleManager.exists(check.getSampleId())) {
-            throw new ValidationException("Ошибка: sampleId не существует");
-        }
-        if (!planManager.exists(check.getPlanId())) {
-            throw new ValidationException("Ошибка: planId не существует");
         }
     }
 }

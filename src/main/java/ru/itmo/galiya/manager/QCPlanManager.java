@@ -19,17 +19,16 @@ public class QCPlanManager {
     private final QCPlanValidation validation = new QCPlanValidation();
 
     private long generationId() {
-        return ++id;
+        return id++;
     }
 
     public QCPlan add(String name, MeasurementParam param, QCFrequency frequency, String ownerUsername) {
         long id = generationId();
         Instant now = Instant.now();
 
-        QCPlan plan = new QCPlan(id, name, param, frequency, ownerUsername);
+        QCPlan plan = new QCPlan(id, name, param, frequency, ownerUsername, now, now);
 
         validation.validate(plan);
-
         map.put(id, plan);
         return plan;
     }
@@ -37,16 +36,13 @@ public class QCPlanManager {
     public QCPlan get(long id) {
         return map.get(id);
     }
-
     public Collection<QCPlan> getAll() {
         return Collections.unmodifiableCollection(map.values());
     }
-
     public boolean exists(long id) {
         return map.containsKey(id);
     }
-
     public void remove(long id) {
-        QCPlan plan = map.get(id);
+        map.remove(id);
     }
 }

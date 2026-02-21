@@ -1,7 +1,5 @@
 package ru.itmo.galiya.base;
 
-import ru.itmo.galiya.validation.ValidationException;
-
 public final class Sample {
 
     private final long id;

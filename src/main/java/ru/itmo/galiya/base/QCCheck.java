@@ -1,7 +1,6 @@
 package ru.itmo.galiya.base;
 
 import ru.itmo.galiya.QCStatus;
-
 import java.time.Instant;
 
 public final class QCCheck {
@@ -35,43 +34,7 @@ public final class QCCheck {
     // Когда запись создана. Программа ставит автоматически.
     private Instant createdAt;
 
-    public long getId() {
-        return id;
-    }
-
-    public long getSampleId() {
-        return sampleId;
-    }
-
-    public long getPlanId() {
-        return planId;
-    }
-
-    public double getValue() {
-        return value;
-    }
-
-    public String getUnit() {
-        return unit;
-    }
-
-    public QCStatus getStatus() {
-        return status;
-    }
-
-    public String getOwnerUsername() {
-        return ownerUsername;
-    }
-
-    public Instant getCheckedAt() {
-        return checkedAt;
-    }
-
-    public Instant getCreatedAt() {
-        return createdAt;
-    }
-
-    public QCCheck(long id, long sampleId, long planId, double value, String unit, QCStatus status, String ownerUsername, Instant checkedAt, Instant createdAt, Instant now) {
+    public QCCheck(long id, long sampleId, long planId, double value, String unit, QCStatus status, String ownerUsername, Instant checkedAt, Instant createdAt) {
         this.id = id;
         this.sampleId = sampleId;
         this.planId = planId;
@@ -86,39 +49,58 @@ public final class QCCheck {
     public QCCheck(long id) {
         this.id = id;
     }
+    public long getId() {
+        return id;
+    }
+    public long getSampleId() {
+        return sampleId;
+    }
+    public long getPlanId() {
+        return planId;
+    }
+    public double getValue() {
+        return value;
+    }
+    public String getUnit() {
+        return unit;
+    }
+    public QCStatus getStatus() {
+        return status;
+    }
+    public String getOwnerUsername() {
+        return ownerUsername;
+    }
+    public Instant getCheckedAt() {
+        return checkedAt;
+    }
+    public Instant getCreatedAt() {
+        return createdAt;
+    }
 
     public void setId(long id) {
         this.id = id;
     }
-
     public void setSampleId(long sampleId) {
         this.sampleId = sampleId;
     }
-
     public void setPlanId(long planId) {
         this.planId = planId;
     }
-
     public void setValue(double value) {
         this.value = value;
     }
-
     public void setUnit(String unit) {
         this.unit = unit;
     }
-
     public void setStatus(QCStatus status) {
         this.status = status;
     }
-
     public void setOwnerUsername(String ownerUsername) {
         this.ownerUsername = ownerUsername;
     }
-
     public void setCheckedAt(Instant checkedAt) {
         this.checkedAt = checkedAt;
     }
-
     public void setCreatedAt(Instant createdAt) {
         this.createdAt = createdAt;
     }

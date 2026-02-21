@@ -6,10 +6,10 @@ import java.time.Instant;
 public final class QCPlan {
 
     // Уникальный номер плана QC. Программа назначает сама.
-    public long id;
+    private long id;
 
     // Название плана (например "Water QC basic"). Нельзя пустое.До 128символов .
-    public String name;
+    private String name;
 
     // Какой параметр контролируем (PH, NITRATE...).Выбирается из MeasurementParam .
     private MeasurementParam param;
@@ -26,35 +26,7 @@ public final class QCPlan {
     // Когда изменяли. Программа обновляет автоматически.
     private Instant updatedAt;
 
-    public long getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public MeasurementParam getParam() {
-        return param;
-    }
-
-    public QCFrequency getFrequency() {
-        return frequency;
-    }
-
-    public String getOwnerUsername() {
-        return ownerUsername;
-    }
-
-    public Instant getCreatedAt() {
-        return createdAt;
-    }
-
-    public Instant getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public QCPlan(long id, String name, MeasurementParam param, QCFrequency frequency, String ownerUsername) {
+    public QCPlan(long id, String name, MeasurementParam param, QCFrequency frequency, String ownerUsername, Instant createdAt, Instant updatedAt) {
         this.id = id;
         this.name = name;
         this.param = param;
@@ -68,30 +40,46 @@ public final class QCPlan {
         this.id = id;
     }
 
+    public long getId() {
+        return id;
+    }
+    public String getName() {
+        return name;
+    }
+    public MeasurementParam getParam() {
+        return param;
+    }
+    public QCFrequency getFrequency() {
+        return frequency;
+    }
+    public String getOwnerUsername() {
+        return ownerUsername;
+    }
+    public Instant getCreatedAt() {
+        return createdAt;
+    }
+    public Instant getUpdatedAt() {
+        return updatedAt;
+    }
+
     public void setId(long id) {
         this.id = id;
     }
-
     public void setName(String name) {
         this.name = name;
     }
-
     public void setParam(MeasurementParam param) {
         this.param = param;
     }
-
     public void setFrequency(QCFrequency frequency) {
         this.frequency = frequency;
     }
-
     public void setOwnerUsername(String ownerUsername) {
         this.ownerUsername = ownerUsername;
     }
-
     public void setCreatedAt(Instant createdAt) {
         this.createdAt = createdAt;
     }
-
     public void setUpdatedAt(Instant updatedAt) {
         this.updatedAt = updatedAt;
     }
