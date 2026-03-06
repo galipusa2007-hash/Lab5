@@ -22,15 +22,9 @@ public abstract class Command {
         return requiresAdditionalInput;
     }
 
-    public void CheckArgs(String[] args) throws CommandArgsException {
-    }
-    public void startAdditionalInput(Environment env, Scanner scanner) throws CommandArgsException {
-    }
     public abstract void execute(Environment env, String[] args) throws CommandArgsException;
-
-    public void checkArgs(String[] args) {
+    public void checkArgs(String[] args) throws CommandArgsException {
     }
-
     public void additionalInput(Environment environment, Scanner scanner) {
     }
 }
