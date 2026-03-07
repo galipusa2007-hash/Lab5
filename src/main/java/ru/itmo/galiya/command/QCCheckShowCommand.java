@@ -1,7 +1,6 @@
 package ru.itmo.galiya.command;
 
 import ru.itmo.galiya.base.QCCheck;
-import ru.itmo.galiya.base.QCPlan;
 import ru.itmo.galiya.interpreter.Command;
 import ru.itmo.galiya.interpreter.CommandArgsException;
 import ru.itmo.galiya.interpreter.Environment;

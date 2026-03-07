@@ -3,7 +3,7 @@ package ru.itmo.galiya.base;
 public class MeasurementParam {
     private long id;
     private String name;
-    private String description;
+    private final String description; //тут как бы final, но если что поменяю, если нужно будет description
 
     public MeasurementParam(long id, String name, String description) {
         this.id = id;
@@ -26,8 +26,5 @@ public class MeasurementParam {
     }
     public void setName(String name) {
         this.name = name;
-    }
-    public void setDescription(String description) {
-        this.description = description;
     }
 }

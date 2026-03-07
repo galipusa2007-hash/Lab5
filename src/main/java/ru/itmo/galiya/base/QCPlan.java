@@ -74,12 +74,6 @@ public final class QCPlan {
     public void setFrequency(QCFrequency frequency) {
         this.frequency = frequency;
     }
-    public void setOwnerUsername(String ownerUsername) {
-        this.ownerUsername = ownerUsername;
-    }
-    public void setCreatedAt(Instant createdAt) {
-        this.createdAt = createdAt;
-    }
     public void setUpdatedAt(Instant updatedAt) {
         this.updatedAt = updatedAt;
     }

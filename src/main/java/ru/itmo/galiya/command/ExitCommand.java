@@ -1,12 +1,11 @@
 package ru.itmo.galiya.command;
 
 import ru.itmo.galiya.interpreter.Command;
-import ru.itmo.galiya.interpreter.CommandInterpreter;
 import ru.itmo.galiya.interpreter.Environment;
 
 public class ExitCommand extends Command {
 
-    public ExitCommand(CommandInterpreter interpreter) {
+    public ExitCommand() {
         super("exit", "exit - выйти из системы", false);
     }
     @Override

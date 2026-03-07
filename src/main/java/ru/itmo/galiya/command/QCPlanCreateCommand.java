@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class QCPlanCreateCommand extends Command {
 
     private String name;
-    private String paramName;
+    private long paramId;
     private QCFrequency frequency;
     private String ownerUsername;
 
@@ -31,7 +31,7 @@ public class QCPlanCreateCommand extends Command {
         name = scanner.nextLine().trim();
 
         System.out.println("Параметр: ");
-        paramName = scanner.nextLine().trim();
+        paramId = Long.parseLong(scanner.nextLine().trim());
 
         System.out.println("Частота: (выберите из:EACH_SAMPLE/DAILY/WEEKLY)");
         String frequencyInput = scanner.nextLine().trim();
@@ -43,18 +43,12 @@ public class QCPlanCreateCommand extends Command {
 
     @Override
     public void execute(Environment env, String[] args) {
-        MeasurementParam foundParam = null;
-
-        for (MeasurementParam param: env.getParamManager().getAll()) {
-            if (param.getName().equalsIgnoreCase(paramName)) {
-                foundParam = param;
-                break;
-            }
-        }
-        if (foundParam == null) {
+        if (!env.getParamManager().exists(paramId)) {
             System.out.println("Параметр не найден");
             return;
         }
+        MeasurementParam foundParam = env.getParamManager().get(paramId);
+
         QCPlan plan = env.getPlanManager().add(name, foundParam, frequency, ownerUsername);
         System.out.println("Обновление прошло успешно: plan_id="  + plan.getId());
     }

@@ -1,5 +1,6 @@
 package ru.itmo.galiya;
 
+import ru.itmo.galiya.base.AppData;
 import ru.itmo.galiya.interpreter.CommandInterpreter;
 import ru.itmo.galiya.interpreter.Environment;
 import ru.itmo.galiya.manager.*;
@@ -22,7 +23,7 @@ public class Main {
         CommandInterpreter interpreter = new CommandInterpreter(environment, scanner);
 
         interpreter.register(new HelpCommand(interpreter));
-        interpreter.register(new ExitCommand(interpreter));
+        interpreter.register(new ExitCommand());
         interpreter.register(new QCPlanCreateCommand());
         interpreter.register(new QCPlanListCommand());
         interpreter.register(new QCCheckShowCommand());
@@ -34,8 +35,8 @@ public class Main {
         interpreter.register(new QCCheckRecalcCommand());
         interpreter.register(new QCReportCommand());
 
-        paramManager.add("PH", "Концентрация протонов водорода");
-        paramManager.add("AXID", "Кислоты");
+        AppData.loadDemoData(paramManager, checkManager, limitManager, planManager, sampleManager);
+
         interpreter.run();
     }
 }

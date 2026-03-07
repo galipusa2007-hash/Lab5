@@ -10,29 +10,29 @@ public final class QCCheck {
 
     // Какой образец проверяли (id образца).
     // Должен ссылаться на реально существующий Sample.
-    private long sampleId;
+    private final long sampleId;
 
     // По какому плану проверяем (id плана).
     // Должен ссылаться на реально существующий QCPlan.
-    private long planId;
+    private final long planId;
 
     // Значение измерения для QC (число).
-    private double value;
+    private final double value;
 
     // Единицы (например "pH"). Нельзя пустое. До 16 символов.
-    private String unit;
+    private final String unit;
 
     // Статус проверки: PASS или FAIL.
     private QCStatus status;
 
     // Кто выполнил проверку (логин). На ранних этапах можно "SYSTEM".
-    private String ownerUsername;
+    private final String ownerUsername;
 
     // Когда выполнили. Если не вводят — текущее время.
-    private Instant checkedAt;
+    private final Instant checkedAt;
 
     // Когда запись создана. Программа ставит автоматически.
-    private Instant createdAt;
+    private final Instant createdAt;
 
     public QCCheck(long id, long sampleId, long planId, double value, String unit, QCStatus status, String ownerUsername, Instant checkedAt, Instant createdAt) {
         this.id = id;
@@ -46,9 +46,6 @@ public final class QCCheck {
         this.createdAt = createdAt;
     }
 
-    public QCCheck(long id) {
-        this.id = id;
-    }
     public long getId() {
         return id;
     }
@@ -80,28 +77,7 @@ public final class QCCheck {
     public void setId(long id) {
         this.id = id;
     }
-    public void setSampleId(long sampleId) {
-        this.sampleId = sampleId;
-    }
-    public void setPlanId(long planId) {
-        this.planId = planId;
-    }
-    public void setValue(double value) {
-        this.value = value;
-    }
-    public void setUnit(String unit) {
-        this.unit = unit;
-    }
     public void setStatus(QCStatus status) {
         this.status = status;
-    }
-    public void setOwnerUsername(String ownerUsername) {
-        this.ownerUsername = ownerUsername;
-    }
-    public void setCheckedAt(Instant checkedAt) {
-        this.checkedAt = checkedAt;
-    }
-    public void setCreatedAt(Instant createdAt) {
-        this.createdAt = createdAt;
     }
 }

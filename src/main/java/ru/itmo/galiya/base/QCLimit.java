@@ -9,16 +9,16 @@ public final class QCLimit {
 
     // Для какого плана пределы (id плана).
     // Должен ссылаться на реально существующий QCPlan.
-    private long planId;
+    private final long planId;
 
     // Нижний предел (min). Может быть -inf, но обычно число.
-    private double minValue;
+    private final double minValue;
 
     // Верхний предел (max). Обычно число.
-    private double maxValue;
+    private final double maxValue;
 
     // Когда установили/обновили пределы. Программа ставит автоматически.
-    private Instant updatedAt;
+    private final Instant updatedAt;
 
     public QCLimit(long id, long planId, double minValue, double maxValue, Instant updatedAt) {
         this.id = id;
@@ -44,22 +44,7 @@ public final class QCLimit {
         return updatedAt;
     }
 
-    public QCLimit(long id) {
-        this.id = id;
-    }
     public void setId(long id) {
         this.id = id;
-    }
-    public void setPlanId(long planId) {
-        this.planId = planId;
-    }
-    public void setMinValue(double minValue) {
-        this.minValue = minValue;
-    }
-    public void setMaxValue(double maxValue) {
-        this.maxValue = maxValue;
-    }
-    public void setUpdatedAt(Instant updatedAt) {
-        this.updatedAt = updatedAt;
     }
 }
