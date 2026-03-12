@@ -4,7 +4,7 @@ import ru.itmo.galiya.interpreter.Command;
 import ru.itmo.galiya.interpreter.CommandInterpreter;
 import ru.itmo.galiya.interpreter.Environment;
 
-public class HelpCommand extends Command {
+public class HelpCommand extends Command {//показать список команд
 
     private final CommandInterpreter interpreter;
 

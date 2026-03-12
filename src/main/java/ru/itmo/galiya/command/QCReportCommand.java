@@ -10,7 +10,7 @@ import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
 
-public class QCReportCommand extends Command {
+public class QCReportCommand extends Command {//отчет по проверкам
 
     public QCReportCommand() {
         super("qc_report", "qc_report [--from YYYY-MM-DD] [--to YYYY-MM-DD] - отчёт по проверкам", false);

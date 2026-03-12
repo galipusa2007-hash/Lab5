@@ -5,7 +5,7 @@ import ru.itmo.galiya.interpreter.Command;
 import ru.itmo.galiya.interpreter.CommandArgsException;
 import ru.itmo.galiya.interpreter.Environment;
 
-public class QCCheckShowCommand extends Command {
+public class QCCheckShowCommand extends Command {//конкретная проверка по id
 
     public QCCheckShowCommand() {
         super("qc_check_show", "qc_check_show <check_id> - показать одну проверку", false);

@@ -44,10 +44,4 @@ public class QCCheckManager {
     public Collection<QCCheck> getAll() {
         return Collections.unmodifiableCollection(map.values());
     }
-    public boolean exists(long id) {
-        return map.containsKey(id);
-    }
-    public void remove(long id) {
-        map.remove(id);
-    }
 }

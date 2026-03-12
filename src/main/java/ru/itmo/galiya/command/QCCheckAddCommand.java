@@ -6,7 +6,7 @@ import ru.itmo.galiya.interpreter.Command;
 import ru.itmo.galiya.interpreter.CommandArgsException;
 import ru.itmo.galiya.interpreter.Environment;
 
-public class QCCheckAddCommand extends Command {
+public class QCCheckAddCommand extends Command {//добавление
 
     public QCCheckAddCommand() {
         super("qc_check_add", "qc_check_add <sample_id> <plan_id> <value> <unit><status> <owner>", false);

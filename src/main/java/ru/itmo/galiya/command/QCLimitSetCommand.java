@@ -5,7 +5,7 @@ import ru.itmo.galiya.interpreter.Command;
 import ru.itmo.galiya.interpreter.CommandArgsException;
 import ru.itmo.galiya.interpreter.Environment;
 
-public class QCLimitSetCommand extends Command {
+public class QCLimitSetCommand extends Command {//создание лимиты
 
     public QCLimitSetCommand() {
         super("qc_limit_set", "qc_limit_set <plan_id> <min> <max> - установить пределы для плана", false);
@@ -41,6 +41,6 @@ public class QCLimitSetCommand extends Command {
 
         QCLimit limit = env.getLimitManager().add(planId, minValue, maxValue);
 
-        System.out.println("Обновление прошло успешно: limit_id="  + limit.getId());
+        System.out.println("Обновление прошло успешно: limit_id ="  + limit.getId());
     }
 }

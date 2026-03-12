@@ -6,7 +6,7 @@ import ru.itmo.galiya.interpreter.Command;
 import ru.itmo.galiya.interpreter.CommandArgsException;
 import ru.itmo.galiya.interpreter.Environment;
 
-public class QCCheckListCommand extends Command {
+public class QCCheckListCommand extends Command {//список проверок
 
     public QCCheckListCommand() {
         super("qc_check_list","qc_check_list [--status PASS|FAIL] - показать список проверок", false );

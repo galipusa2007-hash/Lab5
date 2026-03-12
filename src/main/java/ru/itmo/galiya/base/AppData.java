@@ -33,6 +33,7 @@ public class AppData {
 
         qcCheckManager.add(1, plan1.getId(), 1.11, "pH", QCStatus.PASS, "SYSTEM");
         qcCheckManager.add(2, plan2.getId(), 2.22, "pH", QCStatus.PASS, "SYSTEM");
+
         qcCheckManager.add(3, plan3.getId(), 33.33, "mg", QCStatus.PASS, "SYSTEM");
         qcCheckManager.add(4, plan4.getId(), 44.44, "mg", QCStatus.PASS, "SYSTEM");
         qcCheckManager.add(5, plan5.getId(), 555.55, " S/m", QCStatus.PASS, "SYSTEM");

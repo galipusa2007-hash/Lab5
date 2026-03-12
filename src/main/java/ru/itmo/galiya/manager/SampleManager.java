@@ -3,8 +3,6 @@ package ru.itmo.galiya.manager;
 import ru.itmo.galiya.base.Sample;
 import ru.itmo.galiya.validation.SampleValidation;
 
-import java.util.Collection;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -32,16 +30,9 @@ public class SampleManager {
     public Sample get(long id) {
         return map.get(id);
     }
-    public Collection<Sample> getAll() {
-        return Collections.unmodifiableCollection(map.values());
-    }
     public boolean exists(long id) {
         return map.containsKey(id);
     }
-    public void remove(long id) {
-        map.remove(id);
-    }
-
 }
 
 

@@ -9,7 +9,7 @@ import ru.itmo.galiya.interpreter.Environment;
 
 import java.util.Scanner;
 
-public class QCPlanCreateCommand extends Command {
+public class QCPlanCreateCommand extends Command {//создание нового плана
 
     private String name;
     private long paramId;
@@ -50,6 +50,6 @@ public class QCPlanCreateCommand extends Command {
         MeasurementParam foundParam = env.getParamManager().get(paramId);
 
         QCPlan plan = env.getPlanManager().add(name, foundParam, frequency, ownerUsername);
-        System.out.println("Обновление прошло успешно: plan_id="  + plan.getId());
+        System.out.println("Обновление прошло успешно: plan_id ="  + plan.getId());
     }
 }

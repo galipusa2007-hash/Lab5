@@ -9,7 +9,7 @@ import ru.itmo.galiya.interpreter.Environment;
 
 import java.time.Instant;
 
-public class QCPlanUpdateCommand extends Command {
+public class QCPlanUpdateCommand extends Command {//обновление существующего плана
 
     public QCPlanUpdateCommand() {
         super("qc_plan_update", "qc_plan_update <plan_id> name=VALUE frequency=VALUE param=VALUE", false);

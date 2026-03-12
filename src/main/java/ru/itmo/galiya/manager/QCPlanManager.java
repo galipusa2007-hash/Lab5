@@ -42,7 +42,4 @@ public class QCPlanManager {
     public boolean exists(long id) {
         return map.containsKey(id);
     }
-    public void remove(long id) {
-        map.remove(id);
-    }
 }

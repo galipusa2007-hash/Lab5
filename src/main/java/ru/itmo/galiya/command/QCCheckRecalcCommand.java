@@ -7,7 +7,7 @@ import ru.itmo.galiya.interpreter.Command;
 import ru.itmo.galiya.interpreter.CommandArgsException;
 import ru.itmo.galiya.interpreter.Environment;
 
-public class QCCheckRecalcCommand extends Command {
+public class QCCheckRecalcCommand extends Command {//пересчет статуса
 
     public QCCheckRecalcCommand() {
         super("qc_check_recalc", "qc_check_recalc <check_id> - пересчитать статус проверки", false);
@@ -50,6 +50,6 @@ public class QCCheckRecalcCommand extends Command {
         }  else {
             check.setStatus(QCStatus.FAIL);
         }
-        System.out.println("Обновление прошло успешно: status=" + check.getStatus());
+        System.out.println("Обновление прошло успешно: status =" + check.getStatus());
     }
 }

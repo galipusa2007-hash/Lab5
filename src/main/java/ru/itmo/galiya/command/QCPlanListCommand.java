@@ -5,7 +5,7 @@ import ru.itmo.galiya.interpreter.Command;
 import ru.itmo.galiya.interpreter.CommandArgsException;
 import ru.itmo.galiya.interpreter.Environment;
 
-public class QCPlanListCommand extends Command {
+public class QCPlanListCommand extends Command {//список всех планов/планов с определенным параметром
     public QCPlanListCommand() {
         super("qc_plan_list", "qc_plan_list [--param PARAM] - показать список планов в системе", false);
     }

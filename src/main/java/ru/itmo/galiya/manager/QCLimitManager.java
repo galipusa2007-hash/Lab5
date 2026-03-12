@@ -40,10 +40,4 @@ public class QCLimitManager {
     public Collection<QCLimit> getAll() {
         return Collections.unmodifiableCollection(map.values());
     }
-    public boolean exists(long id) {
-        return map.containsKey(id);
-    }
-    public QCLimit remove(long id) {
-        return map.remove(id);
-    }
 }

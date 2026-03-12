@@ -5,7 +5,7 @@ import ru.itmo.galiya.interpreter.Command;
 import ru.itmo.galiya.interpreter.CommandArgsException;
 import ru.itmo.galiya.interpreter.Environment;
 
-public class QCPlanShowCommand extends Command {
+public class QCPlanShowCommand extends Command {//пвывод одного плана по id
     public QCPlanShowCommand() {
         super("qc_plan_show", "qc_plan_show <plan_id> - показать один план", false);
     }
