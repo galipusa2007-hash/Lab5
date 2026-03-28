@@ -1,7 +1,7 @@
 package ru.itmo.galiya.manager;
 
-import ru.itmo.galiya.base.QCLimit;
-import ru.itmo.galiya.validation.QCLimitValidation;
+import ru.itmo.galiya.base.*;
+import ru.itmo.galiya.validation.*;
 
 import java.time.Instant;
 import java.util.Collection;
@@ -39,5 +39,20 @@ public class QCLimitManager {
     }
     public Collection<QCLimit> getAll() {
         return Collections.unmodifiableCollection(map.values());
+    }
+    public Map<Long, QCLimit> exportData() {
+        return new HashMap<>(map);
+    }
+    public void replace(Map<Long, QCLimit> newData) {
+        map.clear();
+        map.putAll(newData);
+
+        long maxId = 0;
+        for (Long currentId : map.keySet()) {
+            if (currentId > maxId) {
+                maxId = currentId;
+            }
+        }
+        id = maxId;
     }
 }

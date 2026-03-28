@@ -1,8 +1,8 @@
 package ru.itmo.galiya.manager;
 
 import ru.itmo.galiya.QCStatus;
-import ru.itmo.galiya.base.QCCheck;
-import ru.itmo.galiya.validation.QCCheckValidation;
+import ru.itmo.galiya.base.*;
+import ru.itmo.galiya.validation.*;
 
 import java.time.Instant;
 import java.util.Collection;
@@ -43,5 +43,20 @@ public class QCCheckManager {
     }
     public Collection<QCCheck> getAll() {
         return Collections.unmodifiableCollection(map.values());
+    }
+    public Map<Long, QCCheck> exportData() {
+        return new HashMap<>(map);
+    }
+    public void replace(Map<Long, QCCheck> newData) {
+        map.clear();
+        map.putAll(newData);
+
+        long maxId = 0;
+        for (Long currentId : map.keySet()) {
+            if (currentId > maxId) {
+                maxId = currentId;
+            }
+        }
+        id = maxId;
     }
 }

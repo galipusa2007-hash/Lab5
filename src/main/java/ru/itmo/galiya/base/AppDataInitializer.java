@@ -4,7 +4,7 @@ import ru.itmo.galiya.QCFrequency;
 import ru.itmo.galiya.QCStatus;
 import ru.itmo.galiya.manager.*;
 
-public class AppData {
+public class AppDataInitializer {
     public static void loadDemoData (MeasurementParamManager measurementParamManager, QCCheckManager qcCheckManager, QCLimitManager qCLimitManager, QCPlanManager qCPlanManager, SampleManager sampleManager) {
 
         MeasurementParam ph = measurementParamManager.add("PH", "Концентрация протонов водорода");

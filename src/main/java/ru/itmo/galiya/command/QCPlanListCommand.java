@@ -37,11 +37,7 @@ public class QCPlanListCommand extends Command {//список всех план
             if (filterParam != null && !paramName.equalsIgnoreCase(filterParam)) {
                 continue;
             }
-            System.out.println(plan.getId() + " | ");
-            System.out.println(plan.getName() + " | ");
-            System.out.println(paramName + " | ");
-            System.out.println(plan.getFrequency() + " | ");
-            System.out.println(plan.getOwnerUsername());
+            System.out.println(plan.getId() + " | " + plan.getName() + " | " + paramName + " | " + plan.getFrequency() + " | " + plan.getOwnerUsername());
         }
     }
 }

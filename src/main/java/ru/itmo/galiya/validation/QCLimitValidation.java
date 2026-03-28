@@ -1,19 +1,23 @@
 package ru.itmo.galiya.validation;
 
-import ru.itmo.galiya.base.QCLimit;
-import ru.itmo.galiya.manager.QCPlanManager;
+import ru.itmo.galiya.base.*;
+import ru.itmo.galiya.manager.*;
 
 import java.time.Instant;
 
 public class QCLimitValidation {
     public void validate(QCLimit limit, QCPlanManager planManager) {
-        validateQCLimit(limit);
+        validate(limit);
+
         if (planManager == null) {
             throw new ValidationException("Ошибка: объект не может быть пустым");
         }
         if (!planManager.exists(limit.getPlanId())) {
             throw new ValidationException("Ошибка: объект c таким id не существует");
         }
+    }
+    public  void validate(QCLimit limit) {
+        validateQCLimit(limit);
     }
 
 

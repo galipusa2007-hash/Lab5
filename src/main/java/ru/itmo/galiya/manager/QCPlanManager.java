@@ -1,9 +1,8 @@
 package ru.itmo.galiya.manager;
 
 import ru.itmo.galiya.QCFrequency;
-import ru.itmo.galiya.base.MeasurementParam;
-import ru.itmo.galiya.base.QCPlan;
-import ru.itmo.galiya.validation.QCPlanValidation;
+import ru.itmo.galiya.base.*;
+import ru.itmo.galiya.validation.*;
 
 import java.time.Instant;
 import java.util.Collection;
@@ -41,5 +40,20 @@ public class QCPlanManager {
     }
     public boolean exists(long id) {
         return map.containsKey(id);
+    }
+    public Map<Long, QCPlan> exportData() {
+        return new HashMap<>(map);
+    }
+    public void replace(Map<Long, QCPlan> newData) {
+        map.clear();
+        map.putAll(newData);
+
+        long maxId = 0;
+        for (Long currentId : map.keySet()) {
+            if (currentId > maxId) {
+                maxId = currentId;
+            }
+        }
+        id = maxId;
     }
 }

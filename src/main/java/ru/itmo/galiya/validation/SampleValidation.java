@@ -1,6 +1,6 @@
 package ru.itmo.galiya.validation;
 
-import ru.itmo.galiya.base.Sample;
+import ru.itmo.galiya.base.*;
 
 public class SampleValidation {
 

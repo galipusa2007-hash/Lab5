@@ -1,8 +1,7 @@
 package ru.itmo.galiya;
 
-import ru.itmo.galiya.base.AppData;
-import ru.itmo.galiya.interpreter.CommandInterpreter;
-import ru.itmo.galiya.interpreter.Environment;
+import ru.itmo.galiya.base.*;
+import ru.itmo.galiya.interpreter.*;
 import ru.itmo.galiya.manager.*;
 import ru.itmo.galiya.command.*;
 
@@ -34,8 +33,10 @@ public class Main {
         interpreter.register(new QCPlanShowCommand());
         interpreter.register(new QCCheckRecalcCommand());
         interpreter.register(new QCReportCommand());
+        interpreter.register(new LoadCommand());
+        interpreter.register(new SaveCommand());
 
-        AppData.loadDemoData(paramManager, checkManager, limitManager, planManager, sampleManager);
+        //AppDataInitializer.loadDemoData(paramManager, checkManager, limitManager, planManager, sampleManager);
 
         interpreter.run();
     }

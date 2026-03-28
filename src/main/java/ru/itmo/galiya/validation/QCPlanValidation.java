@@ -1,8 +1,7 @@
 package ru.itmo.galiya.validation;
 
 import ru.itmo.galiya.QCFrequency;
-import ru.itmo.galiya.base.MeasurementParam;
-import ru.itmo.galiya.base.QCPlan;
+import ru.itmo.galiya.base.*;
 
 import java.time.Instant;
 

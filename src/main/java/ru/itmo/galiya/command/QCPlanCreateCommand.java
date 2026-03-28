@@ -30,7 +30,7 @@ public class QCPlanCreateCommand extends Command {//создание новог�
         System.out.println("Название плана: ");
         name = scanner.nextLine().trim();
 
-        System.out.println("Параметр: ");
+        System.out.println("Параметр: (id) ");
         paramId = Long.parseLong(scanner.nextLine().trim());
 
         System.out.println("Частота: (выберите из:EACH_SAMPLE/DAILY/WEEKLY)");

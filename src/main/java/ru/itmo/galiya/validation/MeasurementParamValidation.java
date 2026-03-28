@@ -1,6 +1,6 @@
 package ru.itmo.galiya.validation;
 
-import ru.itmo.galiya.base.MeasurementParam;
+import ru.itmo.galiya.base.*;
 
 public class MeasurementParamValidation {
 

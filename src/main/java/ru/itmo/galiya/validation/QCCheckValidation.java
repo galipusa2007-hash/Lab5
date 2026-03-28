@@ -1,9 +1,8 @@
 package ru.itmo.galiya.validation;
 
 import ru.itmo.galiya.QCStatus;
-import ru.itmo.galiya.base.QCCheck;
-import ru.itmo.galiya.manager.QCPlanManager;
-import ru.itmo.galiya.manager.SampleManager;
+import ru.itmo.galiya.base.*;
+import ru.itmo.galiya.manager.*;
 
 import java.time.Instant;
 
@@ -25,7 +24,7 @@ public class QCCheckValidation {
     }
 
 
-    private void validate(QCCheck check) {
+    public void validate(QCCheck check) {
         if (check == null) {
             throw new ValidationException("Ошибка: объект не может быть пустым");
         }

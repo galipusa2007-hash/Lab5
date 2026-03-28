@@ -1,12 +1,9 @@
 package ru.itmo.galiya.manager;
 
-import ru.itmo.galiya.base.MeasurementParam;
-import ru.itmo.galiya.validation.MeasurementParamValidation;
+import ru.itmo.galiya.base.*;
+import ru.itmo.galiya.validation.*;
 
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class MeasurementParamManager {
 
@@ -37,5 +34,21 @@ public class MeasurementParamManager {
     }
     public boolean exists(long id) {
         return map.containsKey(id);
+    }
+
+    public Map<Long, MeasurementParam> exportData() {
+        return new HashMap<>(map);
+    }
+    public void replace(Map<Long, MeasurementParam> newData) {
+        map.clear();
+        map.putAll(newData);
+
+        long maxId = 0;
+        for (Long currentId : map.keySet()) {
+            if (currentId > maxId) {
+                maxId = currentId;
+            }
+        }
+        id = maxId + 1;
     }
 }
